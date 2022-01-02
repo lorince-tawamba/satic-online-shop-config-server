@@ -1,0 +1,35 @@
+# =======================================
+# Server
+# =======================================
+server:
+  port: 8888
+
+# =================================
+# SERVICE CONFIGURATION
+# =================================
+spring:
+  application:
+    name: SATIC-ONLINE-SHOP-CONFIG-SERVER
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/lorince-tawamba/satic-online-shop-centralize-configuration-file.git
+          default-label: main
+          username: lorince-tawamba
+          password: votre-mot-de-passe-ici
+          search-paths: satic-online-shop-customer-service, satic-online-shop-product-service, satic-online-shop-order-service, satic-online-shop-invoice-service, satic-online-shop-delivery-service, satic-online-shop-analyses-service
+
+# =======================================
+# Enables Spring Boot Actuator end points
+# =======================================
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: "ALWAYS"
+
+
